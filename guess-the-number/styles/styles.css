@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+}
+
+#grid {
+  aspect-ratio: 1;
+  user-select: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  font-size: 5vmin;
+  width: 100vmin;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#grid > div {
+  transition-duration: 0.1s;
+  overflow: hidden;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#grid > div > span {
+  transition-duration: 0.1s;
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .fill:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+#grid > .fill > span{
+  opacity: 1;
+}
+
+#grid > .bingo {
+  color: #fff;
+  background-color: red;
+}
+
+#grid > .bingo::before {
+  content: "\01f4a3";
+  font-size: 4vmin;
+}
+#grid > .bingo > span {
+  display: none;
+}

@@ -1,0 +1,252 @@
+html,
+body {
+  font-family: serif;
+  height: 100%;
+  margin: 0px;
+}
+
+/* Stopwatch style */
+
+/* Digit animations */
+div.stopwatch .hundredthsecond {
+  animation-duration: 0.1s;
+}
+div.stopwatch .tenthsecond {
+  animation-duration: 1s;
+}
+div.stopwatch .second {
+  animation-duration: 10s;
+}
+div.stopwatch .tensecond {
+  animation-duration: 60s;
+}
+div.stopwatch .minute {
+  animation-duration: 600s;
+}
+div.stopwatch .tenminute {
+  animation-duration: 3600s;
+}
+div.stopwatch .hour {
+  animation-duration: 36000s;
+}
+div.stopwatch .tenhour {
+  animation-duration: 360000s;
+}
+
+div.stopwatch .moveten {
+  animation-name: moveten;
+  animation-timing-function: steps(10, end);
+  animation-iteration-count: infinite;
+  position: relative;
+}
+div.stopwatch .movesix {
+  animation-name: movesix;
+  animation-timing-function: steps(6, end);
+  animation-iteration-count: infinite;
+  position: relative;
+}
+
+@keyframes moveten {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -400px;
+  } /* -10 times height of .cell */
+}
+@keyframes movesix {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -240px;
+  } /* -6 times height of .cell */
+}
+
+div.stopwatch > input[id^="pause"]:checked ~ .timer .digits {
+  animation-play-state: paused;
+}
+div.stopwatch > input[id^="reset"]:checked ~ .timer .digits {
+  animation: none;
+}
+
+div.stopwatch > input[id^="start"]:active ~ .timer .digits {
+  color: DarkGreen;
+}
+div.stopwatch > input[id^="lap"]:active ~ .timer .digits {
+  color: DarkGrey;
+}
+div.stopwatch > input[id^="pause"]:active ~ .timer .digits {
+  color: DarkRed;
+  animation-play-state: paused;
+}
+div.stopwatch > input[id^="reset"]:active ~ .timer .digits {
+  color: DarkBlue;
+}
+
+/* Hide inputs and unnecessary labels */
+div.stopwatch input {
+  visibility: hidden;
+  position: absolute;
+}
+
+div.stopwatch input[id^="start"]:checked ~ div label[for^="start"],
+div.stopwatch input[id^="start"]:checked ~ div label[for^="reset"],
+div.stopwatch input[id^="pause"]:checked ~ div label[for^="start"].start,
+div.stopwatch input[id^="pause"]:checked ~ div label[for^="pause"],
+div.stopwatch input[id^="pause"]:checked ~ div label[for^="lap"],
+div.stopwatch input[id^="reset"]:checked ~ div label[for^="start"].resume,
+div.stopwatch input[id^="reset"]:checked ~ div label[for^="pause"],
+div.stopwatch input[id^="reset"]:checked ~ div label[for^="lap"] {
+  visibility: hidden;
+  left: 0px;
+  position: absolute;
+}
+
+/* The display:flex stopwatch */
+div.stopwatch {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 390px; /* width of 11 .cell plus margin/border/padding width of .timer */
+  height: 100%;
+  margin: 0px auto;
+  padding: 16px 0px;
+  text-align: center;
+  user-select: none;
+}
+div.stopwatch > .timer {
+  display: flex;
+  height: 42px;
+  margin: 4px;
+  border: 5px solid #eee;
+  border-radius: 6px;
+  padding: 10px;
+}
+div.stopwatch > .logs {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+div.stopwatch > .labels {
+  margin: 4px;
+}
+
+div.stopwatch > .timer > .cell {
+  width: 30px;
+  height: 40px;
+  border: solid black 1px;
+  overflow: hidden;
+}
+div.stopwatch > .timer > .cell > .digits {
+  width: 30px;
+  line-height: 1;
+  font-size: 30pt;
+  display: flex;
+  flex-direction: column;
+}
+div.stopwatch > .timer > .cell > .digits > span {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.stopwatch > .logs > div {
+  margin: 4px auto;
+  width: 340px;
+}
+div.stopwatch > .logs table {
+  margin: 0px auto;
+  border-spacing: 10px;
+}
+div.stopwatch > .logs tr.lap {
+  font-size: 18px;
+  text-align: left;
+  user-select: all;
+}
+div.stopwatch > .logs tr.lap > td.type {
+  width: 45px;
+}
+div.stopwatch > .logs tr.lap > td.count {
+  text-align: right;
+  width: 27px;
+}
+div.stopwatch > .logs > div > div {
+ border-left: 3px darkgray solid;
+ }
+div.stopwatch > .logs input[type="checkbox"] ~ div {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 90px;
+  transition-duration: 1.2s;
+}
+div.stopwatch > .logs input[type="checkbox"]:checked ~ div {
+  height: 0px;
+}
+div.stopwatch > .logs input[type="checkbox"] ~ label div{
+  height:23px;
+  width:23px;
+  border:1px solid;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(1.25turn);
+  transition-duration: 1s;
+}
+div.stopwatch > .logs input[type="checkbox"]:checked ~ label div{
+  transform: none;
+}
+
+div.stopwatch > .labels > label > .button {
+  margin: 2px;
+  border-radius: 8px;
+  border: 3px solid;
+  padding: 2px;
+  font-size: 30px;
+  width: 120px;
+  text-align: center;
+  display: inline-block;
+}
+
+div.stopwatch > .labels > label[for^="start"] > .button {
+  border-color: #060;
+  background: #090;
+  color: #fff;
+}
+div.stopwatch > .labels > label[for^="lap"] > .button {
+  border-color: #555;
+  background: #aaa;
+  color: #fff;
+}
+div.stopwatch > .labels > label[for^="pause"] > .button {
+  border-color: #810;
+  background: #c30;
+  color: #fff;
+}
+div.stopwatch > .labels > label[for^="reset"] > .button {
+  border-color: #359;
+  background: #57d;
+  color: #fff;
+}
+
+div.stopwatch > .labels > label[for^="start"]:active > .button {
+  background: #fff;
+  color: #090;
+}
+div.stopwatch > .labels > label[for^="lap"]:active > .button {
+  background: #fff;
+  color: #aaa;
+}
+div.stopwatch > .labels > label[for^="pause"]:active > .button {
+  background: #fff;
+  color: #c30;
+}
+div.stopwatch > .labels > label[for^="reset"]:active > .button {
+  background: #fff;
+  color: #57d;
+}
+/* End of Stopwatch style */

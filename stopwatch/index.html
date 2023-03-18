@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+    <meta name="theme-color" content="#395000">
+    <meta name="viewport" content="width=480" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <script src="./js/scripts.js"></script>
+    <title>:::Stopwatch</title>
+  </head>
+  <body>
+    <!--Stopwatch is contained inside a div.stopwatch-->
+    <div class="stopwatch" id="stopwatch-1">
+      <input id="start-1" name="control-1" type="radio" />
+      <input id="pause-1" data-action="Pause" name="control-1" type="radio" />
+      <input
+        id="reset-1"
+        data-action="Reset"
+        name="control-1"
+        type="radio"
+        checked="checked"
+      />
+      <input id="lap-1" data-action="Lap" name="control-1" type="button" />
+      <div class="timer">
+        <div class="cell">
+          <div class="digits moveten tenhour">
+            <span>0</span><span>1</span><span>2</span><span>3</span
+            ><span>4</span><span>5</span><span>6</span><span>7</span
+            ><span>8</span><span>9</span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="digits moveten hour">
+            <span>0</span><span>1</span><span>2</span><span>3</span
+            ><span>4</span><span>5</span><span>6</span><span>7</span
+            ><span>8</span><span>9</span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="digits"><span>:</span></div>
+        </div>
+        <div class="cell">
+          <div class="digits movesix tenminute">
+            <span>0</span><span>1</span><span>2</span><span>3</span
+            ><span>4</span><span>5</span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="digits moveten minute">
+            <span>0</span><span>1</span><span>2</span><span>3</span
+            ><span>4</span><span>5</span><span>6</span><span>7</span
+            ><span>8</span><span>9</span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="digits"><span>:</span></div>
+        </div>
+        <div class="cell">
+          <div class="digits movesix tensecond">
+            <span>0</span><span>1</span><span>2</span><span>3</span
+            ><span>4</span><span>5</span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="digits moveten second">
+            <span>0</span><span>1</span><span>2</span><span>3</span
+            ><span>4</span><span>5</span><span>6</span><span>7</span
+            ><span>8</span><span>9</span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="digits"><span>.</span></div>
+        </div>
+        <div class="cell">
+          <div class="digits moveten tenthsecond">
+            <span>0</span><span>1</span><span>2</span><span>3</span
+            ><span>4</span><span>5</span><span>6</span><span>7</span
+            ><span>8</span><span>9</span>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="digits moveten hundredthsecond">
+            <span>0</span><span>1</span><span>2</span><span>3</span
+            ><span>4</span><span>5</span><span>6</span><span>7</span
+            ><span>8</span><span>9</span>
+          </div>
+        </div>
+      </div>
+      <div class="logs">
+        <div data-mark-count="0" data-time-elapsed="00:00:00.00">
+          <div>
+            <table>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="labels">
+        <label for="start-1" class="start">
+          <div class="button">Start</div>
+        </label>
+        <label for="start-1" class="resume">
+          <div class="button">Resume</div>
+        </label>
+        <label for="pause-1">
+          <div class="button">Pause</div>
+        </label>
+        <label for="lap-1">
+          <div class="button">Lap</div>
+        </label>
+        <label for="reset-1">
+          <div class="button">Reset</div>
+        </label>
+      </div>
+    </div>
+    <!--End of div.container for a Stopwatch-->
+  </body>
+</html>

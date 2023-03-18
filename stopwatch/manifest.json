@@ -1,0 +1,27 @@
+﻿{
+  "short_name": "秒表",
+  "name": "秒表",
+  "description": "秒表",
+  "icons": [
+    {
+      "src": "./img/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./img/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./img/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#395000",
+  "background_color": "#395000"
+}
